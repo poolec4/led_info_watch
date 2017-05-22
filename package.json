@@ -48,8 +48,8 @@
       "KEY_TEMPERATURE": 0,
       "KEY_CONDITIONS": 1,
       "KEY_POS": 2,
-      "KEY_BACKGROUND_COLOR": 3,
-      "KEY_FONT_COLOR": 4,
+      "KEY_HIGHLIGHT_COLOR": 3,
+      "KEY_LOCATION_COLOR": 4,
       "KEY_VIBRATE": 5,
       "KEY_UNIT": 6,
       "KEY_LOCATION": 7,
@@ -62,7 +62,10 @@
       "KEY_SLEEP_START": 14,
       "KEY_SLEEP_END": 15,
       "KEY_BATTERY_METER": 16,
-      "KEY_JSREADY": 17
+      "KEY_JSREADY": 17,
+      "KEY_BACKGROUND_COLOR": 18,
+      "KEY_FONT_COLOR": 19,
+      "KEY_POS_ERROR": 20
     },
     "enableMultiJS": false,
     "displayName": "LED Watch Info",
@@ -74,11 +77,13 @@
     "targetPlatforms": [
       "aplite",
       "basalt",
+      "chalk",
       "diorite"
     ],
     "capabilities": [
       "location",
-      "configurable"
+      "configurable",
+      "health"
     ]
   },
   "name": "LED Watch Info"

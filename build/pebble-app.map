@@ -1,19 +1,24 @@
 Archive member included because of file (symbol)
 
 /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                              src/c/led_info_watch.c.25.o (app_event_loop)
+                              src/c/led_info_watch.c.33.o (app_event_loop)
 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
-                              src/c/led_info_watch.c.25.o (__ctype_ptr__)
+                              src/c/led_info_watch.c.33.o (__ctype_ptr__)
 
 Allocating common symbols
 Common symbol       size              file
 
-fontGColor          0x1               src/c/led_info_watch.c.25.o
+locationGColor      0x1               src/c/led_info_watch.c.33.o
+highlight_color_hex_int
+                    0x4               src/c/led_info_watch.c.33.o
+fontGColor          0x1               src/c/led_info_watch.c.33.o
 background_color_hex_int
-                    0x4               src/c/led_info_watch.c.25.o
-font_color_hex_int  0x4               src/c/led_info_watch.c.25.o
-backgroundGColor    0x1               src/c/led_info_watch.c.25.o
-hide_location       0x1               src/c/led_info_watch.c.25.o
+                    0x4               src/c/led_info_watch.c.33.o
+font_color_hex_int  0x4               src/c/led_info_watch.c.33.o
+location_color_hex_int
+                    0x4               src/c/led_info_watch.c.33.o
+backgroundGColor    0x1               src/c/led_info_watch.c.33.o
+hide_location       0x1               src/c/led_info_watch.c.33.o
 
 Discarded input sections
 
@@ -29,68 +34,74 @@ Discarded input sections
  .jcr           0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
  .tm_clone_table
                 0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
- .text          0x0000000000000000        0x0 src/c/led_info_watch.c.25.o
- .bss           0x0000000000000000        0x0 src/c/led_info_watch.c.25.o
- .data.rel.local.short_months
-                0x0000000000000000       0x30 src/c/led_info_watch.c.25.o
+ .text          0x0000000000000000        0x0 src/c/led_info_watch.c.33.o
+ .bss           0x0000000000000000        0x0 src/c/led_info_watch.c.33.o
  .data.rel.local.long_months
-                0x0000000000000000       0x30 src/c/led_info_watch.c.25.o
+                0x0000000000000000       0x30 src/c/led_info_watch.c.33.o
+ .data.rel.local.short_months
+                0x0000000000000000       0x30 src/c/led_info_watch.c.33.o
  .data.show_bluetooth_status
-                0x0000000000000000        0x1 src/c/led_info_watch.c.25.o
- .text          0x0000000000000000        0x0 aplite/appinfo.auto.c.25.o
- .bss           0x0000000000000000        0x0 aplite/appinfo.auto.c.25.o
- .text          0x0000000000000000        0x0 aplite/src/resource_ids.auto.c.25.o
- .bss           0x0000000000000000        0x0 aplite/src/resource_ids.auto.c.25.o
+                0x0000000000000000        0x1 src/c/led_info_watch.c.33.o
+ .text          0x0000000000000000        0x0 aplite/appinfo.auto.c.33.o
+ .bss           0x0000000000000000        0x0 aplite/appinfo.auto.c.33.o
+ .text          0x0000000000000000        0x0 aplite/src/resource_ids.auto.c.33.o
+ .bss           0x0000000000000000        0x0 aplite/src/resource_ids.auto.c.33.o
  .data.RESOURCE_ID_pin
-                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.25.o
+                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.33.o
  .data.RESOURCE_ID_cloud
-                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.25.o
+                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.33.o
  .data.RESOURCE_ID_battery
-                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.25.o
+                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.33.o
  .data.RESOURCE_ID_FONT_MYRIAD_LIGHT_13
-                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.25.o
+                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.33.o
  .data.RESOURCE_ID_FONT_MYRIAD_LIGHT_14
-                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.25.o
+                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.33.o
  .data.RESOURCE_ID_shoe
-                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.25.o
- .text          0x0000000000000000        0x0 src/message_keys.auto.c.25.o
- .bss           0x0000000000000000        0x0 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 aplite/src/resource_ids.auto.c.33.o
+ .text          0x0000000000000000        0x0 src/message_keys.auto.c.33.o
+ .bss           0x0000000000000000        0x0 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_UNIT
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_MIDDLE_OUTLINE
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_LOCATION
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_JSREADY
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_LATITUDE
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_ZIP_CODE
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_BATTERY_METER
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_POS
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_UPDATE_INTERVAL
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
+ .data.MESSAGE_KEY_KEY_POS_ERROR
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
+ .data.MESSAGE_KEY_KEY_LOCATION_COLOR
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .bss.MESSAGE_KEY_KEY_TEMPERATURE
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_SLEEP_END
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_BACKGROUND_COLOR
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
+ .data.MESSAGE_KEY_KEY_HIGHLIGHT_COLOR
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_VIBRATE
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_FONT_COLOR
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_SLEEP
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_LONGITUDE
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_SLEEP_START
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .data.MESSAGE_KEY_KEY_CONDITIONS
-                0x0000000000000000        0x4 src/message_keys.auto.c.25.o
+                0x0000000000000000        0x4 src/message_keys.auto.c.33.o
  .bss           0x0000000000000000        0x0 /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.accel_data_service_subscribe__deprecated
                 0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
@@ -174,8 +185,6 @@ Discarded input sections
                 0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.atoi     0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.atol     0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
- .text.battery_state_service_peek
-                0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.battery_state_service_subscribe
                 0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.battery_state_service_unsubscribe
@@ -484,7 +493,6 @@ Discarded input sections
  .text.srand    0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.strcat   0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.strcmp   0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
- .text.strcpy   0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.strlen   0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.strncat  0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.strncmp  0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
@@ -522,10 +530,6 @@ Discarded input sections
  .text.vibes_double_pulse
                 0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.vibes_enqueue_custom_pattern
-                0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
- .text.vibes_long_pulse
-                0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
- .text.vibes_short_pulse
                 0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.window_get_click_config_provider
                 0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
@@ -1129,8 +1133,6 @@ Discarded input sections
                 0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.health_service_any_activity_accessible
                 0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
- .text.health_service_events_subscribe
-                0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.health_service_events_unsubscribe
                 0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.health_service_get_minute_history
@@ -1140,8 +1142,6 @@ Discarded input sections
  .text.health_service_peek_current_activities
                 0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.health_service_sum
-                0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
- .text.health_service_sum_today
                 0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .text.time_start_of_today
                 0x0000000000000000        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
@@ -1176,10 +1176,10 @@ Linker script and memory map
 
 LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
 LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
-LOAD src/c/led_info_watch.c.25.o
-LOAD aplite/appinfo.auto.c.25.o
-LOAD aplite/src/resource_ids.auto.c.25.o
-LOAD src/message_keys.auto.c.25.o
+LOAD src/c/led_info_watch.c.33.o
+LOAD aplite/appinfo.auto.c.33.o
+LOAD aplite/src/resource_ids.auto.c.33.o
+LOAD src/message_keys.auto.c.33.o
 LOAD /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a
 START GROUP
 LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/libgcc.a
@@ -1190,7 +1190,7 @@ LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none
 
 .header         0x0000000000000000       0x82
  *(.pbl_header)
- .pbl_header    0x0000000000000000       0x82 aplite/appinfo.auto.c.25.o
+ .pbl_header    0x0000000000000000       0x82 aplite/appinfo.auto.c.33.o
                 0x0000000000000000                __pbl_app_info
 
 .note.gnu.build-id
@@ -1201,369 +1201,411 @@ LOAD /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none
  .note.gnu.build-id
                 0x0000000000000084       0x24 linker stubs
 
-.text           0x00000000000000a8     0x19df
+.text           0x00000000000000a8     0x1cd9
  *(.text)
  .text          0x00000000000000a8       0x14 /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  *(.text.*)
  .text.outbox_sent_callback
-                0x00000000000000bc       0x1c src/c/led_info_watch.c.25.o
+                0x00000000000000bc       0x1c src/c/led_info_watch.c.33.o
  .text.outbox_failed_callback
-                0x00000000000000d8       0x1c src/c/led_info_watch.c.25.o
+                0x00000000000000d8       0x1c src/c/led_info_watch.c.33.o
  .text.inbox_dropped_callback
-                0x00000000000000f4       0x1c src/c/led_info_watch.c.25.o
+                0x00000000000000f4       0x1c src/c/led_info_watch.c.33.o
  .text.requestWeather
-                0x0000000000000110       0x7c src/c/led_info_watch.c.25.o
+                0x0000000000000110       0x7c src/c/led_info_watch.c.33.o
  .text.update_time
-                0x000000000000018c       0xe4 src/c/led_info_watch.c.25.o
+                0x000000000000018c      0x124 src/c/led_info_watch.c.33.o
  .text.tick_handler
-                0x0000000000000270       0x14 src/c/led_info_watch.c.25.o
+                0x00000000000002b0       0x14 src/c/led_info_watch.c.33.o
  .text.inbox_received_callback
-                0x0000000000000284      0x234 src/c/led_info_watch.c.25.o
+                0x00000000000002c4      0x270 src/c/led_info_watch.c.33.o
+ .text.health_handler
+                0x0000000000000534       0x38 src/c/led_info_watch.c.33.o
  .text.window_unload
-                0x00000000000004b8       0x84 src/c/led_info_watch.c.25.o
+                0x000000000000056c       0x84 src/c/led_info_watch.c.33.o
  .text.window_load
-                0x000000000000053c      0x29c src/c/led_info_watch.c.25.o
+                0x00000000000005f0      0x35c src/c/led_info_watch.c.33.o
  .text.HexStringToUInt
-                0x00000000000007d8       0x74 src/c/led_info_watch.c.25.o
-                0x00000000000007d8                HexStringToUInt
+                0x000000000000094c       0x74 src/c/led_info_watch.c.33.o
+                0x000000000000094c                HexStringToUInt
  .text.canvas_layer_update_proc
-                0x000000000000084c      0x2a4 src/c/led_info_watch.c.25.o
+                0x00000000000009c0      0x344 src/c/led_info_watch.c.33.o
  .text.startup.main
-                0x0000000000000af0      0x374 src/c/led_info_watch.c.25.o
-                0x0000000000000af0                main
+                0x0000000000000d04      0x3d0 src/c/led_info_watch.c.33.o
+                0x0000000000000d04                main
  .text.app_event_loop
-                0x0000000000000e64        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000e64                app_event_loop
- .text.app_log  0x0000000000000e70        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000e70                app_log
- .text.app_message_open
-                0x0000000000000e7c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000e7c                app_message_open
- .text.bitmap_layer_create
-                0x0000000000000e88        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000e88                bitmap_layer_create
- .text.bitmap_layer_destroy
-                0x0000000000000e94        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000e94                bitmap_layer_destroy
- .text.bitmap_layer_get_layer
-                0x0000000000000ea0        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000ea0                bitmap_layer_get_layer
- .text.bitmap_layer_set_alignment
-                0x0000000000000eac        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000eac                bitmap_layer_set_alignment
- .text.bitmap_layer_set_bitmap
-                0x0000000000000eb8        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000eb8                bitmap_layer_set_bitmap
- .text.bitmap_layer_set_compositing_mode
-                0x0000000000000ec4        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000ec4                bitmap_layer_set_compositing_mode
- .text.clock_is_24h_style
-                0x0000000000000ed0        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000ed0                clock_is_24h_style
- .text.dict_find
-                0x0000000000000edc        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000edc                dict_find
- .text.dict_read_first
-                0x0000000000000ee8        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000ee8                dict_read_first
- .text.dict_read_next
-                0x0000000000000ef4        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000ef4                dict_read_next
- .text.dict_write_cstring
-                0x0000000000000f00        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000f00                dict_write_cstring
- .text.dict_write_uint32
-                0x0000000000000f0c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000f0c                dict_write_uint32
- .text.fonts_load_custom_font
-                0x0000000000000f18        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000f18                fonts_load_custom_font
- .text.gbitmap_create_with_resource
-                0x0000000000000f24        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000f24                gbitmap_create_with_resource
- .text.gbitmap_destroy
-                0x0000000000000f30        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000f30                gbitmap_destroy
- .text.graphics_fill_circle
-                0x0000000000000f3c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000f3c                graphics_fill_circle
- .text.graphics_fill_rect
-                0x0000000000000f48        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000f48                graphics_fill_rect
- .text.layer_add_child
-                0x0000000000000f54        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000f54                layer_add_child
- .text.layer_create
-                0x0000000000000f60        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000f60                layer_create
- .text.layer_destroy
-                0x0000000000000f6c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000f6c                layer_destroy
- .text.layer_mark_dirty
-                0x0000000000000f78        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000f78                layer_mark_dirty
- .text.layer_set_update_proc
-                0x0000000000000f84        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000f84                layer_set_update_proc
- .text.memset   0x0000000000000f90        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000f90                memset
- .text.persist_exists
-                0x0000000000000f9c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000f9c                persist_exists
- .text.persist_read_int
-                0x0000000000000fa8        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000fa8                persist_read_int
- .text.persist_write_int
-                0x0000000000000fb4        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000fb4                persist_write_int
- .text.persist_write_string
-                0x0000000000000fc0        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000fc0                persist_write_string
- .text.resource_get_handle
-                0x0000000000000fcc        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000fcc                resource_get_handle
- .text.snprintf
-                0x0000000000000fd8        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000fd8                snprintf
- .text.strftime
-                0x0000000000000fe4        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000fe4                strftime
- .text.tick_timer_service_subscribe
-                0x0000000000000ff0        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000ff0                tick_timer_service_subscribe
- .text.tick_timer_service_unsubscribe
-                0x0000000000000ffc        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000000ffc                tick_timer_service_unsubscribe
- .text.window_create
-                0x0000000000001008        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001008                window_create
- .text.window_destroy
-                0x0000000000001014        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001014                window_destroy
- .text.window_get_root_layer
-                0x0000000000001020        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001020                window_get_root_layer
- .text.window_set_window_handlers
-                0x000000000000102c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x000000000000102c                window_set_window_handlers
- .text.window_stack_push
-                0x0000000000001038        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001038                window_stack_push
- .text.app_message_outbox_begin
-                0x0000000000001044        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001044                app_message_outbox_begin
- .text.app_message_outbox_send
-                0x0000000000001050        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001050                app_message_outbox_send
- .text.app_message_register_inbox_dropped
-                0x000000000000105c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x000000000000105c                app_message_register_inbox_dropped
- .text.app_message_register_inbox_received
-                0x0000000000001068        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001068                app_message_register_inbox_received
- .text.app_message_register_outbox_failed
-                0x0000000000001074        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001074                app_message_register_outbox_failed
- .text.app_message_register_outbox_sent
-                0x0000000000001080        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001080                app_message_register_outbox_sent
- .text.persist_read_string
-                0x000000000000108c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x000000000000108c                persist_read_string
- .text.graphics_context_set_fill_color
-                0x0000000000001098        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001098                graphics_context_set_fill_color
- .text.localtime
-                0x00000000000010a4        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000010a4                localtime
- .text.text_layer_create
-                0x00000000000010b0        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000010b0                text_layer_create
- .text.text_layer_destroy
-                0x00000000000010bc        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000010bc                text_layer_destroy
- .text.text_layer_get_layer
-                0x00000000000010c8        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000010c8                text_layer_get_layer
- .text.text_layer_set_background_color
                 0x00000000000010d4        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000010d4                text_layer_set_background_color
- .text.text_layer_set_font
-                0x00000000000010e0        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000010e0                text_layer_set_font
- .text.text_layer_set_text
+                0x00000000000010d4                app_event_loop
+ .text.app_log  0x00000000000010e0        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000010e0                app_log
+ .text.app_message_open
                 0x00000000000010ec        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000010ec                text_layer_set_text
- .text.text_layer_set_text_alignment
+                0x00000000000010ec                app_message_open
+ .text.battery_state_service_peek
                 0x00000000000010f8        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x00000000000010f8                text_layer_set_text_alignment
- .text.text_layer_set_text_color
+                0x00000000000010f8                battery_state_service_peek
+ .text.bitmap_layer_create
                 0x0000000000001104        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001104                text_layer_set_text_color
- .text.time     0x0000000000001110        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
-                0x0000000000001110                time
+                0x0000000000001104                bitmap_layer_create
+ .text.bitmap_layer_destroy
+                0x0000000000001110        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001110                bitmap_layer_destroy
+ .text.bitmap_layer_get_layer
+                0x000000000000111c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000111c                bitmap_layer_get_layer
+ .text.bitmap_layer_set_alignment
+                0x0000000000001128        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001128                bitmap_layer_set_alignment
+ .text.bitmap_layer_set_bitmap
+                0x0000000000001134        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001134                bitmap_layer_set_bitmap
+ .text.bitmap_layer_set_compositing_mode
+                0x0000000000001140        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001140                bitmap_layer_set_compositing_mode
+ .text.clock_is_24h_style
+                0x000000000000114c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000114c                clock_is_24h_style
+ .text.dict_find
+                0x0000000000001158        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001158                dict_find
+ .text.dict_read_first
+                0x0000000000001164        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001164                dict_read_first
+ .text.dict_read_next
+                0x0000000000001170        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001170                dict_read_next
+ .text.dict_write_cstring
+                0x000000000000117c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000117c                dict_write_cstring
+ .text.dict_write_uint32
+                0x0000000000001188        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001188                dict_write_uint32
+ .text.fonts_load_custom_font
+                0x0000000000001194        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001194                fonts_load_custom_font
+ .text.gbitmap_create_with_resource
+                0x00000000000011a0        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000011a0                gbitmap_create_with_resource
+ .text.gbitmap_destroy
+                0x00000000000011ac        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000011ac                gbitmap_destroy
+ .text.graphics_fill_circle
+                0x00000000000011b8        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000011b8                graphics_fill_circle
+ .text.graphics_fill_rect
+                0x00000000000011c4        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000011c4                graphics_fill_rect
+ .text.layer_add_child
+                0x00000000000011d0        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000011d0                layer_add_child
+ .text.layer_create
+                0x00000000000011dc        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000011dc                layer_create
+ .text.layer_destroy
+                0x00000000000011e8        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000011e8                layer_destroy
+ .text.layer_mark_dirty
+                0x00000000000011f4        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000011f4                layer_mark_dirty
+ .text.layer_set_update_proc
+                0x0000000000001200        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001200                layer_set_update_proc
+ .text.memset   0x000000000000120c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000120c                memset
+ .text.persist_exists
+                0x0000000000001218        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001218                persist_exists
+ .text.persist_read_int
+                0x0000000000001224        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001224                persist_read_int
+ .text.persist_write_int
+                0x0000000000001230        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001230                persist_write_int
+ .text.persist_write_string
+                0x000000000000123c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000123c                persist_write_string
+ .text.resource_get_handle
+                0x0000000000001248        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001248                resource_get_handle
+ .text.snprintf
+                0x0000000000001254        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001254                snprintf
+ .text.strcpy   0x0000000000001260        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001260                strcpy
+ .text.strftime
+                0x000000000000126c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000126c                strftime
+ .text.tick_timer_service_subscribe
+                0x0000000000001278        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001278                tick_timer_service_subscribe
+ .text.tick_timer_service_unsubscribe
+                0x0000000000001284        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001284                tick_timer_service_unsubscribe
+ .text.vibes_long_pulse
+                0x0000000000001290        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001290                vibes_long_pulse
+ .text.vibes_short_pulse
+                0x000000000000129c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000129c                vibes_short_pulse
+ .text.window_create
+                0x00000000000012a8        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000012a8                window_create
+ .text.window_destroy
+                0x00000000000012b4        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000012b4                window_destroy
+ .text.window_get_root_layer
+                0x00000000000012c0        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000012c0                window_get_root_layer
+ .text.window_set_window_handlers
+                0x00000000000012cc        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000012cc                window_set_window_handlers
+ .text.window_stack_push
+                0x00000000000012d8        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000012d8                window_stack_push
+ .text.app_message_outbox_begin
+                0x00000000000012e4        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000012e4                app_message_outbox_begin
+ .text.app_message_outbox_send
+                0x00000000000012f0        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000012f0                app_message_outbox_send
+ .text.app_message_register_inbox_dropped
+                0x00000000000012fc        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000012fc                app_message_register_inbox_dropped
+ .text.app_message_register_inbox_received
+                0x0000000000001308        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001308                app_message_register_inbox_received
+ .text.app_message_register_outbox_failed
+                0x0000000000001314        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001314                app_message_register_outbox_failed
+ .text.app_message_register_outbox_sent
+                0x0000000000001320        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001320                app_message_register_outbox_sent
+ .text.persist_read_string
+                0x000000000000132c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000132c                persist_read_string
+ .text.graphics_context_set_fill_color
+                0x0000000000001338        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001338                graphics_context_set_fill_color
+ .text.localtime
+                0x0000000000001344        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001344                localtime
+ .text.text_layer_create
+                0x0000000000001350        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001350                text_layer_create
+ .text.text_layer_destroy
+                0x000000000000135c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000135c                text_layer_destroy
+ .text.text_layer_get_layer
+                0x0000000000001368        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001368                text_layer_get_layer
+ .text.text_layer_set_background_color
+                0x0000000000001374        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001374                text_layer_set_background_color
+ .text.text_layer_set_font
+                0x0000000000001380        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001380                text_layer_set_font
+ .text.text_layer_set_text
+                0x000000000000138c        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x000000000000138c                text_layer_set_text
+ .text.text_layer_set_text_alignment
+                0x0000000000001398        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x0000000000001398                text_layer_set_text_alignment
+ .text.text_layer_set_text_color
+                0x00000000000013a4        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000013a4                text_layer_set_text_color
+ .text.time     0x00000000000013b0        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000013b0                time
+ .text.health_service_events_subscribe
+                0x00000000000013bc        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000013bc                health_service_events_subscribe
+ .text.health_service_sum_today
+                0x00000000000013c8        0xc /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+                0x00000000000013c8                health_service_sum_today
  *(.rodata)
- .rodata        0x000000000000111c       0x7c src/c/led_info_watch.c.25.o
+ .rodata        0x00000000000013d4       0x8c src/c/led_info_watch.c.33.o
  *(.rodata*)
  .rodata.digit_matrix
-                0x0000000000001198      0x690 src/c/led_info_watch.c.25.o
+                0x0000000000001460      0x690 src/c/led_info_watch.c.33.o
  .rodata.str1.1
-                0x0000000000001828      0x15e src/c/led_info_watch.c.25.o
-                                        0x161 (size before relaxing)
+                0x0000000000001af0      0x190 src/c/led_info_watch.c.33.o
+                                        0x193 (size before relaxing)
  .rodata._ctype_
-                0x0000000000001986      0x101 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
-                0x0000000000001986                _ctype_
+                0x0000000000001c80      0x101 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
+                0x0000000000001c80                _ctype_
 
-.glue_7         0x0000000000001a88        0x0
+.glue_7         0x0000000000001d84        0x0
  .glue_7        0x0000000000000000        0x0 linker stubs
 
-.glue_7t        0x0000000000001a88        0x0
+.glue_7t        0x0000000000001d84        0x0
  .glue_7t       0x0000000000000000        0x0 linker stubs
 
-.vfp11_veneer   0x0000000000001a88        0x0
+.vfp11_veneer   0x0000000000001d84        0x0
  .vfp11_veneer  0x0000000000000000        0x0 linker stubs
 
-.v4_bx          0x0000000000001a88        0x0
+.v4_bx          0x0000000000001d84        0x0
  .v4_bx         0x0000000000000000        0x0 linker stubs
 
-.iplt           0x0000000000001a88        0x0
+.iplt           0x0000000000001d84        0x0
  .iplt          0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.rel.dyn        0x0000000000001a88        0x0
+.rel.dyn        0x0000000000001d84        0x0
  .rel.iplt      0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
  .rel.got       0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.data           0x0000000000001a88       0x50
+.data           0x0000000000001d84       0x68
  *(.data)
- .data          0x0000000000001a88        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
- .data          0x0000000000001a88        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
-                0x0000000000001a88                __dso_handle
- .data          0x0000000000001a8c        0x0 src/c/led_info_watch.c.25.o
- .data          0x0000000000001a8c        0x0 aplite/appinfo.auto.c.25.o
- .data          0x0000000000001a8c        0x0 aplite/src/resource_ids.auto.c.25.o
- .data          0x0000000000001a8c        0x0 src/message_keys.auto.c.25.o
- .data          0x0000000000001a8c        0x0 /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
- .data          0x0000000000001a8c        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
- .data          0x0000000000001a8c        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
- .data          0x0000000000001a8c        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
+ .data          0x0000000000001d84        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crti.o
+ .data          0x0000000000001d84        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x0000000000001d84                __dso_handle
+ .data          0x0000000000001d88        0x0 src/c/led_info_watch.c.33.o
+ .data          0x0000000000001d88        0x0 aplite/appinfo.auto.c.33.o
+ .data          0x0000000000001d88        0x0 aplite/src/resource_ids.auto.c.33.o
+ .data          0x0000000000001d88        0x0 src/message_keys.auto.c.33.o
+ .data          0x0000000000001d88        0x0 /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
+ .data          0x0000000000001d88        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
+ .data          0x0000000000001d88        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
+ .data          0x0000000000001d88        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtn.o
  *(.data.*)
  .data.update_interval_val
-                0x0000000000001a8c        0x4 src/c/led_info_watch.c.25.o
-                0x0000000000001a8c                update_interval_val
- .data.font_color_hex_char
-                0x0000000000001a90        0xa src/c/led_info_watch.c.25.o
-                0x0000000000001a90                font_color_hex_char
- .data.latitude_to_store
-                0x0000000000001a9a        0xf src/c/led_info_watch.c.25.o
-                0x0000000000001a9a                latitude_to_store
- .data.longitude_to_store
-                0x0000000000001aa9        0xf src/c/led_info_watch.c.25.o
-                0x0000000000001aa9                longitude_to_store
+                0x0000000000001d88        0x4 src/c/led_info_watch.c.33.o
+                0x0000000000001d88                update_interval_val
  .data.background_color_hex_char
-                0x0000000000001ab8        0xa src/c/led_info_watch.c.25.o
-                0x0000000000001ab8                background_color_hex_char
- *fill*         0x0000000000001ac2        0x2 
- .data.zip_code_int
-                0x0000000000001ac4        0x4 src/c/led_info_watch.c.25.o
-                0x0000000000001ac4                zip_code_int
- .data.battery_meter_status
-                0x0000000000001ac8        0x4 src/c/led_info_watch.c.25.o
-                0x0000000000001ac8                battery_meter_status
+                0x0000000000001d8c        0xa src/c/led_info_watch.c.33.o
+                0x0000000000001d8c                background_color_hex_char
+ .data.longitude_to_store
+                0x0000000000001d96        0xf src/c/led_info_watch.c.33.o
+                0x0000000000001d96                longitude_to_store
+ *fill*         0x0000000000001da5        0x3 
  .data.vibrate_status
-                0x0000000000001acc        0x4 src/c/led_info_watch.c.25.o
-                0x0000000000001acc                vibrate_status
+                0x0000000000001da8        0x4 src/c/led_info_watch.c.33.o
+                0x0000000000001da8                vibrate_status
+ .data.location_color_hex_char
+                0x0000000000001dac        0xa src/c/led_info_watch.c.33.o
+                0x0000000000001dac                location_color_hex_char
+ *fill*         0x0000000000001db6        0x2 
+ .data.battery_meter_status
+                0x0000000000001db8        0x4 src/c/led_info_watch.c.33.o
+                0x0000000000001db8                battery_meter_status
+ .data.highlight_color_hex_char
+                0x0000000000001dbc        0xa src/c/led_info_watch.c.33.o
+                0x0000000000001dbc                highlight_color_hex_char
+ *fill*         0x0000000000001dc6        0x2 
  .data.middle_outline_status
-                0x0000000000001ad0        0x4 src/c/led_info_watch.c.25.o
-                0x0000000000001ad0                middle_outline_status
+                0x0000000000001dc8        0x4 src/c/led_info_watch.c.33.o
+                0x0000000000001dc8                middle_outline_status
+ .data.font_color_hex_char
+                0x0000000000001dcc        0xa src/c/led_info_watch.c.33.o
+                0x0000000000001dcc                font_color_hex_char
+ .data.latitude_to_store
+                0x0000000000001dd6        0xf src/c/led_info_watch.c.33.o
+                0x0000000000001dd6                latitude_to_store
+ *fill*         0x0000000000001de5        0x3 
  .data.__ctype_ptr__
-                0x0000000000001ad4        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
-                0x0000000000001ad4                __ctype_ptr__
+                0x0000000000001de8        0x4 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
+                0x0000000000001de8                __ctype_ptr__
 
-.igot.plt       0x0000000000001ad8        0x0
+.igot.plt       0x0000000000001dec        0x0
  .igot.plt      0x0000000000000000        0x0 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.got            0x0000000000001ad8       0x14
- .got           0x0000000000001ad8       0x14 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+.got            0x0000000000001dec       0x1c
+ .got           0x0000000000001dec       0x1c /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
 
-.got.plt        0x0000000000001aec        0xc
- .got.plt       0x0000000000001aec        0xc /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
-                0x0000000000001aec                _GLOBAL_OFFSET_TABLE_
+.got.plt        0x0000000000001e08        0xc
+ .got.plt       0x0000000000001e08        0xc /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
+                0x0000000000001e08                _GLOBAL_OFFSET_TABLE_
 
-.bss            0x0000000000001af8      0x16a
+.bss            0x0000000000001e14      0x19e
  *(.bss)
  *(.bss.*)
- .bss.pin_bitmap_layer
-                0x0000000000001af8        0x4 src/c/led_info_watch.c.25.o
- .bss.sleep_end_hour
-                0x0000000000001afc        0x4 src/c/led_info_watch.c.25.o
-                0x0000000000001afc                sleep_end_hour
- .bss.sleep_start_hour
-                0x0000000000001b00        0x4 src/c/led_info_watch.c.25.o
-                0x0000000000001b00                sleep_start_hour
- .bss.is_in_sleep
-                0x0000000000001b04        0x1 src/c/led_info_watch.c.25.o
-                0x0000000000001b04                is_in_sleep
- .bss.date_buffer
-                0x0000000000001b05       0x1e src/c/led_info_watch.c.25.o
- *fill*         0x0000000000001b23        0x1 
- .bss.temp_to_store
-                0x0000000000001b24        0x4 src/c/led_info_watch.c.25.o
-                0x0000000000001b24                temp_to_store
- .bss.shoe_bitmap
-                0x0000000000001b28        0x4 src/c/led_info_watch.c.25.o
- .bss.pin_bitmap
-                0x0000000000001b2c        0x4 src/c/led_info_watch.c.25.o
- .bss.location_buffer
-                0x0000000000001b30       0x64 src/c/led_info_watch.c.25.o
- .bss.text_layer
-                0x0000000000001b94        0x4 src/c/led_info_watch.c.25.o
- .bss.canvas_layer
-                0x0000000000001b98        0x4 src/c/led_info_watch.c.25.o
- .bss.conditions_buffer
-                0x0000000000001b9c       0x64 src/c/led_info_watch.c.25.o
- .bss.window    0x0000000000001c00        0x4 src/c/led_info_watch.c.25.o
- .bss.temp_units
-                0x0000000000001c04        0x4 src/c/led_info_watch.c.25.o
-                0x0000000000001c04                temp_units
- .bss.sleep_status
-                0x0000000000001c08        0x4 src/c/led_info_watch.c.25.o
-                0x0000000000001c08                sleep_status
- .bss.location_status
-                0x0000000000001c0c        0x4 src/c/led_info_watch.c.25.o
-                0x0000000000001c0c                location_status
- .bss.steps_bitmap_layer
-                0x0000000000001c10        0x4 src/c/led_info_watch.c.25.o
- .bss.location_text_layer
-                0x0000000000001c14        0x4 src/c/led_info_watch.c.25.o
- .bss.temperature_buffer
-                0x0000000000001c18        0x8 src/c/led_info_watch.c.25.o
- .bss.numbers_to_print
-                0x0000000000001c20       0x10 src/c/led_info_watch.c.25.o
-                0x0000000000001c20                numbers_to_print
- .bss.font_myriad_14
-                0x0000000000001c30        0x4 src/c/led_info_watch.c.25.o
- .bss.battery_bitmap
-                0x0000000000001c34        0x4 src/c/led_info_watch.c.25.o
- .bss.temperature_text_layer
-                0x0000000000001c38        0x4 src/c/led_info_watch.c.25.o
- .bss.battery_bitmap_layer
-                0x0000000000001c3c        0x4 src/c/led_info_watch.c.25.o
- .bss.cloud_bitmap
-                0x0000000000001c40        0x4 src/c/led_info_watch.c.25.o
- .bss.font_myriad_13
-                0x0000000000001c44        0x4 src/c/led_info_watch.c.25.o
- .bss.js_ready  0x0000000000001c48        0x1 src/c/led_info_watch.c.25.o
- *fill*         0x0000000000001c49        0x3 
  .bss.weather_bitmap_layer
-                0x0000000000001c4c        0x4 src/c/led_info_watch.c.25.o
+                0x0000000000001e14        0x4 src/c/led_info_watch.c.33.o
+ .bss.window    0x0000000000001e18        0x4 src/c/led_info_watch.c.33.o
+ .bss.temperature_text_layer
+                0x0000000000001e1c        0x4 src/c/led_info_watch.c.33.o
+ .bss.battery_text_layer
+                0x0000000000001e20        0x4 src/c/led_info_watch.c.33.o
  .bss.date_text_layer
-                0x0000000000001c50        0x4 src/c/led_info_watch.c.25.o
- COMMON         0x0000000000001c54        0xe src/c/led_info_watch.c.25.o
-                0x0000000000001c54                fontGColor
-                0x0000000000001c58                background_color_hex_int
-                0x0000000000001c5c                font_color_hex_int
-                0x0000000000001c60                backgroundGColor
-                0x0000000000001c61                hide_location
+                0x0000000000001e24        0x4 src/c/led_info_watch.c.33.o
+ .bss.pin_bitmap_layer
+                0x0000000000001e28        0x4 src/c/led_info_watch.c.33.o
+ .bss.steps_text_layer
+                0x0000000000001e2c        0x4 src/c/led_info_watch.c.33.o
+ .bss.location_buffer
+                0x0000000000001e30       0x64 src/c/led_info_watch.c.33.o
+ .bss.numbers_to_print
+                0x0000000000001e94       0x10 src/c/led_info_watch.c.33.o
+                0x0000000000001e94                numbers_to_print
+ .bss.js_ready  0x0000000000001ea4        0x1 src/c/led_info_watch.c.33.o
+ *fill*         0x0000000000001ea5        0x3 
+ .bss.sleep_start_hour
+                0x0000000000001ea8        0x4 src/c/led_info_watch.c.33.o
+                0x0000000000001ea8                sleep_start_hour
+ .bss.text_layer
+                0x0000000000001eac        0x4 src/c/led_info_watch.c.33.o
+ .bss.battery_buffer
+                0x0000000000001eb0        0xa src/c/led_info_watch.c.33.o
+ *fill*         0x0000000000001eba        0x2 
+ .bss.zip_code_int
+                0x0000000000001ebc        0x4 src/c/led_info_watch.c.33.o
+                0x0000000000001ebc                zip_code_int
+ .bss.sleep_end_hour
+                0x0000000000001ec0        0x4 src/c/led_info_watch.c.33.o
+                0x0000000000001ec0                sleep_end_hour
+ .bss.location_status
+                0x0000000000001ec4        0x4 src/c/led_info_watch.c.33.o
+                0x0000000000001ec4                location_status
+ .bss.battery_bitmap_layer
+                0x0000000000001ec8        0x4 src/c/led_info_watch.c.33.o
+ .bss.location_text_layer
+                0x0000000000001ecc        0x4 src/c/led_info_watch.c.33.o
+ .bss.temp_units
+                0x0000000000001ed0        0x4 src/c/led_info_watch.c.33.o
+                0x0000000000001ed0                temp_units
+ .bss.font_myriad_13
+                0x0000000000001ed4        0x4 src/c/led_info_watch.c.33.o
+ .bss.font_myriad_14
+                0x0000000000001ed8        0x4 src/c/led_info_watch.c.33.o
+ .bss.canvas_layer
+                0x0000000000001edc        0x4 src/c/led_info_watch.c.33.o
+ .bss.shoe_bitmap
+                0x0000000000001ee0        0x4 src/c/led_info_watch.c.33.o
+ .bss.temperature_buffer
+                0x0000000000001ee4        0x8 src/c/led_info_watch.c.33.o
+ .bss.temp_to_store
+                0x0000000000001eec        0x4 src/c/led_info_watch.c.33.o
+                0x0000000000001eec                temp_to_store
+ .bss.steps_buffer
+                0x0000000000001ef0        0xa src/c/led_info_watch.c.33.o
+ *fill*         0x0000000000001efa        0x2 
+ .bss.steps_bitmap_layer
+                0x0000000000001efc        0x4 src/c/led_info_watch.c.33.o
+ .bss.pin_bitmap
+                0x0000000000001f00        0x4 src/c/led_info_watch.c.33.o
+ .bss.conditions_buffer
+                0x0000000000001f04       0x64 src/c/led_info_watch.c.33.o
+ .bss.is_in_sleep
+                0x0000000000001f68        0x1 src/c/led_info_watch.c.33.o
+                0x0000000000001f68                is_in_sleep
+ *fill*         0x0000000000001f69        0x3 
+ .bss.cloud_bitmap
+                0x0000000000001f6c        0x4 src/c/led_info_watch.c.33.o
+ .bss.date_buffer
+                0x0000000000001f70       0x1e src/c/led_info_watch.c.33.o
+ *fill*         0x0000000000001f8e        0x2 
+ .bss.battery_bitmap
+                0x0000000000001f90        0x4 src/c/led_info_watch.c.33.o
+ .bss.sleep_status
+                0x0000000000001f94        0x4 src/c/led_info_watch.c.33.o
+                0x0000000000001f94                sleep_status
+ COMMON         0x0000000000001f98       0x1a src/c/led_info_watch.c.33.o
+                0x0000000000001f98                locationGColor
+                0x0000000000001f9c                highlight_color_hex_int
+                0x0000000000001fa0                fontGColor
+                0x0000000000001fa4                background_color_hex_int
+                0x0000000000001fa8                font_color_hex_int
+                0x0000000000001fac                location_color_hex_int
+                0x0000000000001fb0                backgroundGColor
+                0x0000000000001fb1                hide_location
 
 DISCARD
  libc.a(*)
@@ -1579,13 +1621,13 @@ OUTPUT(/Users/Chris/Google Drive/Pebble/led_info_watch/build/aplite/pebble-app.e
  .ARM.attributes
                 0x0000000000000019       0x29 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
  .ARM.attributes
-                0x0000000000000042       0x33 src/c/led_info_watch.c.25.o
+                0x0000000000000042       0x33 src/c/led_info_watch.c.33.o
  .ARM.attributes
-                0x0000000000000075       0x33 aplite/appinfo.auto.c.25.o
+                0x0000000000000075       0x33 aplite/appinfo.auto.c.33.o
  .ARM.attributes
-                0x00000000000000a8       0x33 aplite/src/resource_ids.auto.c.25.o
+                0x00000000000000a8       0x33 aplite/src/resource_ids.auto.c.33.o
  .ARM.attributes
-                0x00000000000000db       0x33 src/message_keys.auto.c.25.o
+                0x00000000000000db       0x33 src/message_keys.auto.c.33.o
  .ARM.attributes
                 0x000000000000010e       0x21 /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/aplite/lib/libpebble.a(tmp7jpKUopebble.o)
  .ARM.attributes
@@ -1598,63 +1640,63 @@ OUTPUT(/Users/Chris/Google Drive/Pebble/led_info_watch/build/aplite/pebble-app.e
 .comment        0x0000000000000000       0x4e
  .comment       0x0000000000000000       0x4e /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtbegin.o
                                          0x4f (size before relaxing)
- .comment       0x0000000000000000       0x4f src/c/led_info_watch.c.25.o
- .comment       0x0000000000000000       0x4f aplite/appinfo.auto.c.25.o
- .comment       0x0000000000000000       0x4f aplite/src/resource_ids.auto.c.25.o
- .comment       0x0000000000000000       0x4f src/message_keys.auto.c.25.o
+ .comment       0x0000000000000000       0x4f src/c/led_info_watch.c.33.o
+ .comment       0x0000000000000000       0x4f aplite/appinfo.auto.c.33.o
+ .comment       0x0000000000000000       0x4f aplite/src/resource_ids.auto.c.33.o
+ .comment       0x0000000000000000       0x4f src/message_keys.auto.c.33.o
  .comment       0x0000000000000000       0x4f /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
  .comment       0x0000000000000000       0x4f /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/thumb2/crtend.o
 
-.debug_info     0x0000000000000000     0x286b
- .debug_info    0x0000000000000000     0x2252 src/c/led_info_watch.c.25.o
- .debug_info    0x0000000000002252      0x31a aplite/appinfo.auto.c.25.o
- .debug_info    0x000000000000256c       0xdb aplite/src/resource_ids.auto.c.25.o
- .debug_info    0x0000000000002647      0x1b3 src/message_keys.auto.c.25.o
- .debug_info    0x00000000000027fa       0x71 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
+.debug_info     0x0000000000000000     0x2d1f
+ .debug_info    0x0000000000000000     0x26d0 src/c/led_info_watch.c.33.o
+ .debug_info    0x00000000000026d0      0x31a aplite/appinfo.auto.c.33.o
+ .debug_info    0x00000000000029ea       0xdb aplite/src/resource_ids.auto.c.33.o
+ .debug_info    0x0000000000002ac5      0x1e9 src/message_keys.auto.c.33.o
+ .debug_info    0x0000000000002cae       0x71 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
 
-.debug_abbrev   0x0000000000000000      0x526
- .debug_abbrev  0x0000000000000000      0x3b2 src/c/led_info_watch.c.25.o
- .debug_abbrev  0x00000000000003b2       0x9e aplite/appinfo.auto.c.25.o
- .debug_abbrev  0x0000000000000450       0x44 aplite/src/resource_ids.auto.c.25.o
- .debug_abbrev  0x0000000000000494       0x44 src/message_keys.auto.c.25.o
- .debug_abbrev  0x00000000000004d8       0x4e /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
+.debug_abbrev   0x0000000000000000      0x531
+ .debug_abbrev  0x0000000000000000      0x3bd src/c/led_info_watch.c.33.o
+ .debug_abbrev  0x00000000000003bd       0x9e aplite/appinfo.auto.c.33.o
+ .debug_abbrev  0x000000000000045b       0x44 aplite/src/resource_ids.auto.c.33.o
+ .debug_abbrev  0x000000000000049f       0x44 src/message_keys.auto.c.33.o
+ .debug_abbrev  0x00000000000004e3       0x4e /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
 
-.debug_loc      0x0000000000000000      0x5a0
- .debug_loc     0x0000000000000000      0x5a0 src/c/led_info_watch.c.25.o
+.debug_loc      0x0000000000000000      0x657
+ .debug_loc     0x0000000000000000      0x657 src/c/led_info_watch.c.33.o
 
-.debug_aranges  0x0000000000000000       0xd8
+.debug_aranges  0x0000000000000000       0xe0
  .debug_aranges
-                0x0000000000000000       0x78 src/c/led_info_watch.c.25.o
+                0x0000000000000000       0x80 src/c/led_info_watch.c.33.o
  .debug_aranges
-                0x0000000000000078       0x18 aplite/appinfo.auto.c.25.o
+                0x0000000000000080       0x18 aplite/appinfo.auto.c.33.o
  .debug_aranges
-                0x0000000000000090       0x18 aplite/src/resource_ids.auto.c.25.o
+                0x0000000000000098       0x18 aplite/src/resource_ids.auto.c.33.o
  .debug_aranges
-                0x00000000000000a8       0x18 src/message_keys.auto.c.25.o
+                0x00000000000000b0       0x18 src/message_keys.auto.c.33.o
  .debug_aranges
-                0x00000000000000c0       0x18 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
+                0x00000000000000c8       0x18 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
 
-.debug_ranges   0x0000000000000000      0x108
- .debug_ranges  0x0000000000000000      0x108 src/c/led_info_watch.c.25.o
+.debug_ranges   0x0000000000000000      0x130
+ .debug_ranges  0x0000000000000000      0x130 src/c/led_info_watch.c.33.o
 
-.debug_line     0x0000000000000000      0x7ed
- .debug_line    0x0000000000000000      0x4c7 src/c/led_info_watch.c.25.o
- .debug_line    0x00000000000004c7      0x134 aplite/appinfo.auto.c.25.o
- .debug_line    0x00000000000005fb       0xc4 aplite/src/resource_ids.auto.c.25.o
- .debug_line    0x00000000000006bf       0xbd src/message_keys.auto.c.25.o
- .debug_line    0x000000000000077c       0x71 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
+.debug_line     0x0000000000000000      0x86f
+ .debug_line    0x0000000000000000      0x549 src/c/led_info_watch.c.33.o
+ .debug_line    0x0000000000000549      0x134 aplite/appinfo.auto.c.33.o
+ .debug_line    0x000000000000067d       0xc4 aplite/src/resource_ids.auto.c.33.o
+ .debug_line    0x0000000000000741       0xbd src/message_keys.auto.c.33.o
+ .debug_line    0x00000000000007fe       0x71 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
 
-.debug_str      0x0000000000000000     0x1591
- .debug_str     0x0000000000000000     0x1027 src/c/led_info_watch.c.25.o
-                                       0x10f7 (size before relaxing)
- .debug_str     0x0000000000001027      0x22f aplite/appinfo.auto.c.25.o
+.debug_str      0x0000000000000000     0x1939
+ .debug_str     0x0000000000000000     0x1376 src/c/led_info_watch.c.33.o
+                                       0x144d (size before relaxing)
+ .debug_str     0x0000000000001376      0x22f aplite/appinfo.auto.c.33.o
                                         0x324 (size before relaxing)
- .debug_str     0x0000000000001256       0xa8 aplite/src/resource_ids.auto.c.25.o
+ .debug_str     0x00000000000015a5       0xa8 aplite/src/resource_ids.auto.c.33.o
                                         0x177 (size before relaxing)
- .debug_str     0x00000000000012fe      0x1f2 src/message_keys.auto.c.25.o
-                                        0x2c1 (size before relaxing)
- .debug_str     0x00000000000014f0       0xa1 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
+ .debug_str     0x000000000000164d      0x24b src/message_keys.auto.c.33.o
+                                        0x31a (size before relaxing)
+ .debug_str     0x0000000000001898       0xa1 /usr/local/Cellar/pebble-toolchain/2.0/arm-cs-tools/bin/../lib/gcc/arm-none-eabi/4.7.2/../../../../arm-none-eabi/lib/thumb2/libc.a(lib_a-ctype_.o)
                                          0xc9 (size before relaxing)
 
-.debug_frame    0x0000000000000000      0x160
- .debug_frame   0x0000000000000000      0x160 src/c/led_info_watch.c.25.o
+.debug_frame    0x0000000000000000      0x178
+ .debug_frame   0x0000000000000000      0x178 src/c/led_info_watch.c.33.o

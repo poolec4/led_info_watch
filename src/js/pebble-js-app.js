@@ -72,6 +72,65 @@ function fetchWeather(pos) {
   xhr.send(null);
 }
 
+function fetchWeather_no_pos() {
+  var xhr = new XMLHttpRequest();
+
+  if (location_status == 1 && zip_code != 'undefined' && zip_code !== 0)
+  {
+    console.log("Based on custom zip");
+    url = "http://api.openweathermap.org/data/2.5/weather?zip=" + zip_code + ",us" + "&appid=0a69eddcd5c88ed0db3e5f0d4c183cff";
+  }
+  else if (location_status == 2 && latitude != 'undefined' && latitude !== 0 && longitude != 'undefined' && longitude !== 0)
+  {  
+    console.log("Based on custom lat/long");
+    url = "http://api.openweathermap.org/data/2.5/weather?lat=" +
+    latitude + "&lon=" + longitude + "&appid=0a69eddcd5c88ed0db3e5f0d4c183cff";
+  }
+  //console.log("URL:" + url);
+
+  xhr.open('GET',url,true);
+  xhr.onload = function() {
+    if(xhr.readyState === 4) {
+      if(xhr.status === 200) {
+        //console.log(xhr.responseText);
+        var json = JSON.parse(xhr.responseText);
+
+        var temperature;
+        console.log("Temp_units " + temp_units);
+
+        if (temp_units == 0)
+        {
+          temperature = Math.round(json.main.temp - 273.15);
+        }
+        
+        if(temp_units == 1)
+        {
+          temperature = Math.round((json.main.temp - 273.15) * 1.8 + 32);
+        }
+        
+        console.log("Temperature is " + temperature);
+
+        // Conditions
+        var conditions = json.weather[0].main;      
+        console.log("Conditions are " + conditions);
+        
+        // Location
+        var location = json.name;      
+        console.log("Location is " + location);
+
+        Pebble.sendAppMessage({
+          "KEY_TEMPERATURE": temperature,
+          "KEY_CONDITIONS": conditions,
+          "KEY_POS": location
+          });
+      } else {
+        console.log('Error');
+      }
+    }
+  };
+  xhr.send(null);
+}
+
 function locationSuccess(pos) {
   console.log(" ** Location Success **");
   fetchWeather(pos);
@@ -79,7 +138,16 @@ function locationSuccess(pos) {
 
 function locationError(err){
   console.log("Error reuesting location.");
-  fetchWeather(pos);
+  if (location_status == 0)
+  {
+    Pebble.sendAppMessage({
+      "KEY_POS_ERROR": 1,
+      });
+  }
+  else
+  {
+   fetchWeather_no_pos();
+  }
 }
 
 var locationOptions = {
@@ -91,10 +159,10 @@ Pebble.addEventListener("showConfiguration", function(e) {
   watch_info = Pebble.getActiveWatchInfo()
 
   if (watch_info.platform == "basalt") {
-    Pebble.openURL('http://cobweb.seas.gwu.edu/~poolec/block_time/block_time_settings_page_current');
+    Pebble.openURL('http://cobweb.seas.gwu.edu/~poolec/led_info_watch/led_info_watch_settings_page_current');
   }
   else {
-    Pebble.openURL('http://cobweb.seas.gwu.edu/~poolec/block_time/block_time_settings_page_current_bw');
+    Pebble.openURL('http://cobweb.seas.gwu.edu/~poolec/led_info_watch/led_info_watch_settings_page_current_bw');
   }
 });
 

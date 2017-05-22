@@ -5,13 +5,21 @@
 
 char background_color_hex_char[10] = "000000"; 
 char font_color_hex_char[10] = "FFFFFF";
+char highlight_color_hex_char[10] = "00FFAA";
+char location_color_hex_char[10] = "FFFF00";
+
+GColor backgroundGColor;
+GColor fontGColor;
+GColor locationGColor;
 
 int vibrate_status = 2;
 int temp_units = 0;
 int location_status = 0;
-int zip_code_int = 12054;
+int zip_code_int = 0;
 int background_color_hex_int;
 int font_color_hex_int;
+int highlight_color_hex_int;
+int location_color_hex_int;
 int temp_to_store = 0;
 int middle_outline_status = 1;
 int update_interval_val = 60;
@@ -32,8 +40,8 @@ bool hide_location;
 #define KEY_POS 2
 
 //settings keys
-#define KEY_BACKGROUND_COLOR 3
-#define KEY_FONT_COLOR 4
+#define KEY_HIGHLIGHT_COLOR 3
+#define KEY_LOCATION_COLOR 4
 #define KEY_VIBRATE 5
 #define KEY_UNIT 6
 #define KEY_LOCATION 7
@@ -47,6 +55,9 @@ bool hide_location;
 #define KEY_SLEEP_END 15
 #define KEY_BATTERY_METER 16
 #define KEY_JSREADY 17
+#define KEY_BACKGROUND_COLOR 18
+#define KEY_FONT_COLOR 19
+#define KEY_POS_ERROR 20
 
 static Window *window;
 static Layer *canvas_layer;
@@ -54,7 +65,8 @@ static Layer *text_layer;
 static TextLayer *location_text_layer;
 static TextLayer *date_text_layer;
 static TextLayer *temperature_text_layer;
-static TextLayer *sleep_text_layer;
+static TextLayer *steps_text_layer;
+static TextLayer *battery_text_layer;
 
 static BitmapLayer *weather_bitmap_layer;
 static GBitmap *cloud_bitmap;
@@ -76,9 +88,8 @@ static char date_buffer[30];
 static char temperature_buffer[8];
 static char conditions_buffer[100];
 static char location_buffer[100];
-
-GColor backgroundGColor;
-GColor fontGColor;
+static char steps_buffer[10];
+static char battery_buffer[10];
 
 int numbers_to_print[4] = {0,0,0,0};
 
@@ -215,6 +226,12 @@ static void requestWeather(void)
   app_message_outbox_send();
 }
 
+static void health_handler(HealthEventType event, void *context) {
+  int today_steps = (int)health_service_sum_today(HealthMetricStepCount);
+  snprintf(steps_buffer, sizeof(steps_buffer), "%d", today_steps);
+  text_layer_set_text(steps_text_layer, steps_buffer);
+}
+
 static void update_time()
 {
   time_t temp = time(NULL);
@@ -258,32 +275,37 @@ static void update_time()
     requestWeather();
   }
 
-
-  // if(tick_time->tm_min % 60 == 0 && tick_time->tm_sec % 60 == 0 && is_in_sleep != true)
-  // {
-  //   switch (vibrate_status)
-  //   {
-  //     case 0:
-  //       vibes_short_pulse();
-  //       break;
-  //     case 1:
-  //       vibes_long_pulse();
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // }
+  if(tick_time->tm_min % 60 == 0 && tick_time->tm_sec % 60 == 0 && is_in_sleep != true)
+  {
+    switch (vibrate_status)
+    {
+      case 0:
+        vibes_short_pulse();
+        break;
+      case 1:
+        vibes_long_pulse();
+        break;
+      default:
+        break;
+    }
+  }
 }
 
 static void inbox_received_callback(DictionaryIterator *iterator, void *context)
 {  
   Tuple *ready = dict_find(iterator, KEY_JSREADY);
+  Tuple *pos_error = dict_find(iterator, KEY_POS_ERROR);
 
   if(ready && js_ready != true)
   {
     APP_LOG(APP_LOG_LEVEL_INFO, "JS ready!");
     js_ready = true;
     requestWeather();
+  }
+  else if(pos_error)
+  {
+    APP_LOG(APP_LOG_LEVEL_INFO, "Error getting position");
+    snprintf(location_buffer, sizeof(location_buffer), "Set Location Manually");
   }
   else
   {
@@ -309,12 +331,12 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
           snprintf(location_buffer, sizeof(location_buffer), "%s", t->value->cstring);
           break;
 
-        case KEY_BACKGROUND_COLOR:
-          snprintf(background_color_hex_char, sizeof(background_color_hex_char), "%s", t->value->cstring);    
+        case KEY_HIGHLIGHT_COLOR:
+          snprintf(highlight_color_hex_char, sizeof(highlight_color_hex_char), "%s", t->value->cstring);    
           break;
 
-        case KEY_FONT_COLOR:
-          snprintf(font_color_hex_char, sizeof(font_color_hex_char), "%s", t->value->cstring);    
+        case KEY_LOCATION_COLOR:
+          snprintf(location_color_hex_char, sizeof(location_color_hex_char), "%s", t->value->cstring);    
           break;
 
         case KEY_VIBRATE:
@@ -399,43 +421,17 @@ static void canvas_layer_update_proc(Layer *this_layer, GContext *ctx)
 {
   background_color_hex_int = HexStringToUInt(background_color_hex_char);
   font_color_hex_int = HexStringToUInt(font_color_hex_char);
+  highlight_color_hex_int = HexStringToUInt(highlight_color_hex_char);
+  location_color_hex_int = HexStringToUInt(location_color_hex_char);
 
-  switch(background_color_hex_int)
-  {
-    case 0:
-      backgroundGColor = GColorBlack;
-      break;
-    case 16777215: 
-      backgroundGColor = GColorWhite;
-      break;
-    default:
-      backgroundGColor = GColorBlack;
-      break;
-  }
+  graphics_context_set_fill_color(ctx, GColorBlack);
+  graphics_fill_rect(ctx, GRect(0, 0, 144, 168), 0, GCornerNone);
 
-  switch(font_color_hex_int)
-  {
-    case 0:
-      fontGColor = GColorBlack;
-      break;
-    case 16777215:
-      fontGColor = GColorWhite;
-      break;
-    default:
-      fontGColor = GColorWhite;
-      break;
-  }
+  fontGColor = GColorWhite;
+  backgroundGColor = GColorBlack;
 
   #ifdef PBL_COLOR
-    graphics_context_set_fill_color(ctx, GColorFromHEX(background_color_hex_int));
-  #else  
-    graphics_context_set_fill_color(ctx, backgroundGColor);
-  #endif
-
-    graphics_fill_rect(ctx, GRect(0, 0, 144, 168), 0, GCornerNone);
-
-  #ifdef PBL_COLOR
-    graphics_context_set_fill_color(ctx, GColorFromHEX(font_color_hex_int));
+    graphics_context_set_fill_color(ctx, GColorFromHEX(highlight_color_hex_int));
   #else
     graphics_context_set_fill_color(ctx, fontGColor);
   #endif
@@ -462,7 +458,7 @@ static void canvas_layer_update_proc(Layer *this_layer, GContext *ctx)
   graphics_fill_rect(ctx, GRect(70,92,4,4), 0, GCornerNone);
 
   #ifdef PBL_COLOR
-    graphics_context_set_fill_color(ctx, GColorFromHEX(font_color_hex_int));
+    graphics_context_set_fill_color(ctx, GColorFromHEX(highlight_color_hex_int));
   #else
     graphics_context_set_fill_color(ctx, fontGColor);
   #endif
@@ -472,7 +468,7 @@ static void canvas_layer_update_proc(Layer *this_layer, GContext *ctx)
   graphics_fill_circle(ctx, GPoint(120,30),21);
 
   #ifdef PBL_COLOR
-    graphics_context_set_fill_color(ctx, GColorFromHEX(background_color_hex_int));
+    graphics_context_set_fill_color(ctx, GColorBlack);
   #else
     graphics_context_set_fill_color(ctx, backgroundGColor);
   #endif
@@ -490,6 +486,27 @@ static void canvas_layer_update_proc(Layer *this_layer, GContext *ctx)
   
   text_layer_set_text(temperature_text_layer, temperature_buffer);
   text_layer_set_text(location_text_layer, location_buffer);
+
+  BatteryChargeState charge_state = battery_state_service_peek();
+  snprintf(battery_buffer, sizeof(battery_buffer), "%d%%", charge_state.charge_percent);
+  text_layer_set_text(battery_text_layer, battery_buffer);
+
+
+  #ifdef PBL_COLOR
+    text_layer_set_text_color(date_text_layer, GColorWhite);
+    text_layer_set_text_color(location_text_layer, GColorWhite);
+    text_layer_set_text_color(temperature_text_layer, GColorWhite);
+    text_layer_set_text_color(steps_text_layer, GColorWhite);
+    text_layer_set_text_color(battery_text_layer, GColorWhite);
+    text_layer_set_text_color(location_text_layer, GColorFromHEX(location_color_hex_int));
+  #else
+    text_layer_set_text_color(date_text_layer, fontGColor);
+    text_layer_set_text_color(location_text_layer, fontGColor);
+    text_layer_set_text_color(temperature_text_layer, fontGColor);
+    text_layer_set_text_color(steps_text_layer, fontGColor);
+    text_layer_set_text_color(battery_text_layer, fontGColor);
+    text_layer_set_text_color(location_text_layer, fontGColor);
+  #endif
 }
 
 static void window_load(Window *window) {
@@ -503,14 +520,12 @@ static void window_load(Window *window) {
   date_text_layer = text_layer_create(GRect(0, 105, 144, 25));
   text_layer_set_text_alignment(date_text_layer, GTextAlignmentCenter);
   text_layer_set_background_color(date_text_layer, GColorClear);
-  text_layer_set_text_color(date_text_layer,GColorWhite);
   text_layer_set_font(date_text_layer, font_myriad_14);
   layer_add_child(text_layer, text_layer_get_layer(date_text_layer));
 
-  location_text_layer = text_layer_create(GRect(0, 140, 144, 25));
+  location_text_layer = text_layer_create(GRect(0, 145, 144, 25));
   text_layer_set_text_alignment(location_text_layer, GTextAlignmentCenter);
   text_layer_set_background_color(location_text_layer, GColorClear);
-  text_layer_set_text_color(location_text_layer,GColorWhite);
   text_layer_set_font(location_text_layer, font_myriad_14);
   layer_add_child(text_layer, text_layer_get_layer(location_text_layer));
 
@@ -521,10 +536,9 @@ static void window_load(Window *window) {
   bitmap_layer_set_compositing_mode(weather_bitmap_layer, GCompOpSet);
   layer_add_child(window_layer, bitmap_layer_get_layer(weather_bitmap_layer));
   
-  temperature_text_layer = text_layer_create(GRect(10, 29, 28, 20));
+  temperature_text_layer = text_layer_create(GRect(10, 29, 29, 20));
   text_layer_set_text_alignment(temperature_text_layer, GTextAlignmentCenter);
   text_layer_set_background_color(temperature_text_layer, GColorClear);
-  text_layer_set_text_color(temperature_text_layer, GColorWhite);
   text_layer_set_font(temperature_text_layer, font_myriad_13);
   layer_add_child(text_layer, text_layer_get_layer(temperature_text_layer));
   
@@ -535,14 +549,26 @@ static void window_load(Window *window) {
   bitmap_layer_set_compositing_mode(steps_bitmap_layer, GCompOpSet);
   layer_add_child(window_layer, bitmap_layer_get_layer(steps_bitmap_layer));
 
-  battery_bitmap_layer = bitmap_layer_create(GRect(106,15,32,15));
+  steps_text_layer = text_layer_create(GRect(56, 29, 33, 20));
+  text_layer_set_text_alignment(steps_text_layer, GTextAlignmentCenter);
+  text_layer_set_background_color(steps_text_layer, GColorClear);
+  text_layer_set_font(steps_text_layer, font_myriad_13);
+  layer_add_child(text_layer, text_layer_get_layer(steps_text_layer));
+
+  battery_bitmap_layer = bitmap_layer_create(GRect(105,15,32,15));
   battery_bitmap = gbitmap_create_with_resource(RESOURCE_ID_battery);
   bitmap_layer_set_bitmap(battery_bitmap_layer, battery_bitmap);
   bitmap_layer_set_alignment(battery_bitmap_layer, GAlignCenter);
   bitmap_layer_set_compositing_mode(battery_bitmap_layer, GCompOpSet);
   layer_add_child(window_layer, bitmap_layer_get_layer(battery_bitmap_layer));
+  
+  battery_text_layer = text_layer_create(GRect(103, 29, 38, 20));
+  text_layer_set_text_alignment(battery_text_layer, GTextAlignmentCenter);
+  text_layer_set_background_color(battery_text_layer, GColorClear);
+  text_layer_set_font(battery_text_layer, font_myriad_13);
+  layer_add_child(text_layer, text_layer_get_layer(battery_text_layer));
 
-  pin_bitmap_layer = bitmap_layer_create(GRect(0,125,144,18));
+  pin_bitmap_layer = bitmap_layer_create(GRect(0,130,144,18));
   pin_bitmap = gbitmap_create_with_resource(RESOURCE_ID_pin);
   bitmap_layer_set_bitmap(pin_bitmap_layer, pin_bitmap);
   bitmap_layer_set_alignment(pin_bitmap_layer, GAlignCenter);
@@ -594,6 +620,14 @@ static void init(void) {
   if (persist_exists(KEY_ZIP_CODE))
   {
     zip_code_int = persist_read_int(KEY_ZIP_CODE);
+  }
+  if (persist_exists(KEY_HIGHLIGHT_COLOR))
+  {
+    persist_read_string(KEY_HIGHLIGHT_COLOR, highlight_color_hex_char, 10);
+  }
+  if (persist_exists(KEY_LOCATION_COLOR))
+  {
+    persist_read_string(KEY_LOCATION_COLOR, location_color_hex_char, 10);
   }
   if (persist_exists(KEY_BACKGROUND_COLOR))
   {
@@ -652,6 +686,7 @@ static void init(void) {
   window_stack_push(window, true);
 
   tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);
+  health_service_events_subscribe(health_handler, NULL);
   
   app_message_register_inbox_received(inbox_received_callback);
   app_message_register_inbox_dropped(inbox_dropped_callback);
@@ -674,6 +709,8 @@ static void deinit(void) {
   persist_write_int(KEY_VIBRATE, vibrate_status);
   persist_write_int(KEY_LOCATION, location_status);
   persist_write_int(KEY_ZIP_CODE, zip_code_int);
+  persist_write_string(KEY_HIGHLIGHT_COLOR, highlight_color_hex_char);
+  persist_write_string(KEY_LOCATION_COLOR, location_color_hex_char);
   persist_write_string(KEY_BACKGROUND_COLOR, background_color_hex_char);
   persist_write_string(KEY_FONT_COLOR, font_color_hex_char);
   persist_write_int(KEY_MIDDLE_OUTLINE, middle_outline_status);

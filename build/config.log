@@ -1,4 +1,4 @@
-# project  configured on Mon May 22 11:26:16 2017 by
+# project  configured on Mon May 22 18:21:13 2017 by
 # waf 1.7.11 (abi 98, python 2070af0 on darwin)
 # using /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/waf configure
 #
@@ -15,6 +15,17 @@ find program=['webpack'] paths=['/Users/Chris/Library/Application Support/Pebble
 ----------------------------------------
 Found Pebble SDK for diorite in:
 /Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/diorite
+----------------------------------------
+Checking for program gcc,cc
+arm-none-eabi-gcc
+find program=['gcc', 'cc'] paths='' var='CC' -> 'arm-none-eabi-gcc'
+----------------------------------------
+Checking for program ar
+arm-none-eabi-ar
+find program=['ar'] paths='' var='AR' -> 'arm-none-eabi-ar'
+----------------------------------------
+Found Pebble SDK for chalk in:
+/Users/Chris/Library/Application Support/Pebble SDK/SDKs/current/sdk-core/pebble/chalk
 ----------------------------------------
 Checking for program gcc,cc
 arm-none-eabi-gcc

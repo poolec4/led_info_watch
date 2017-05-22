@@ -2,6 +2,7 @@
     "targetPlatforms": [
         "aplite", 
         "basalt", 
+        "chalk", 
         "diorite"
     ], 
     "projectType": "native", 
@@ -10,6 +11,8 @@
         "KEY_VIBRATE": 5, 
         "KEY_SLEEP": 13, 
         "KEY_UPDATE_INTERVAL": 12, 
+        "KEY_LOCATION_COLOR": 4, 
+        "KEY_POS_ERROR": 20, 
         "KEY_POS": 2, 
         "KEY_LONGITUDE": 11, 
         "KEY_MIDDLE_OUTLINE": 9, 
@@ -17,13 +20,14 @@
         "KEY_CONDITIONS": 1, 
         "KEY_LOCATION": 7, 
         "KEY_UNIT": 6, 
+        "KEY_HIGHLIGHT_COLOR": 3, 
         "KEY_BATTERY_METER": 16, 
         "KEY_JSREADY": 17, 
         "KEY_SLEEP_START": 14, 
-        "KEY_BACKGROUND_COLOR": 3, 
+        "KEY_BACKGROUND_COLOR": 18, 
         "KEY_ZIP_CODE": 8, 
         "KEY_LATITUDE": 10, 
-        "KEY_FONT_COLOR": 4
+        "KEY_FONT_COLOR": 19
     }, 
     "companyName": "CDev", 
     "enableMultiJS": false, 
@@ -44,6 +48,8 @@
         "KEY_VIBRATE": 5, 
         "KEY_SLEEP": 13, 
         "KEY_UPDATE_INTERVAL": 12, 
+        "KEY_LOCATION_COLOR": 4, 
+        "KEY_POS_ERROR": 20, 
         "KEY_POS": 2, 
         "KEY_LONGITUDE": 11, 
         "KEY_MIDDLE_OUTLINE": 9, 
@@ -51,15 +57,17 @@
         "KEY_CONDITIONS": 1, 
         "KEY_LOCATION": 7, 
         "KEY_UNIT": 6, 
+        "KEY_HIGHLIGHT_COLOR": 3, 
         "KEY_BATTERY_METER": 16, 
         "KEY_JSREADY": 17, 
         "KEY_SLEEP_START": 14, 
-        "KEY_BACKGROUND_COLOR": 3, 
+        "KEY_BACKGROUND_COLOR": 18, 
         "KEY_ZIP_CODE": 8, 
         "KEY_LATITUDE": 10, 
-        "KEY_FONT_COLOR": 4
+        "KEY_FONT_COLOR": 19
     }, 
     "capabilities": [
+        "health", 
         "location", 
         "configurable"
     ], 
