@@ -1,0 +1,85 @@
+{
+  "version": "1.0",
+  "author": "CDev",
+  "private": true,
+  "dependencies": {},
+  "keywords": [
+    "pebble-app"
+  ],
+  "pebble": {
+    "sdkVersion": "3",
+    "resources": {
+      "media": [
+      {
+        "type": "font",
+        "name": "FONT_MYRIAD_LIGHT_14",
+        "file": "fonts/MyriadPro-Light.ttf"
+      },
+      {
+        "type": "font",
+        "name": "FONT_MYRIAD_LIGHT_13",
+        "file": "fonts/MyriadPro-Light.ttf"
+      },
+      {
+        "type":"png",
+        "name":"cloud",
+        "file":"images/cloud.png"
+      },
+      {
+        "type":"png",
+        "name":"battery",
+        "file":"images/battery.png"
+      },
+      {
+        "type":"png",
+        "name":"shoe",
+        "file":"images/shoe.png"
+      },
+      {
+        "type":"png",
+        "name":"pin",
+        "file":"images/pin.png"
+      }
+    ]
+    },
+    "projectType": "native",
+    "uuid": "965986b6-5cd6-471e-b726-adf0b2434a4c",
+      "messageKeys": {
+      "KEY_TEMPERATURE": 0,
+      "KEY_CONDITIONS": 1,
+      "KEY_POS": 2,
+      "KEY_BACKGROUND_COLOR": 3,
+      "KEY_FONT_COLOR": 4,
+      "KEY_VIBRATE": 5,
+      "KEY_UNIT": 6,
+      "KEY_LOCATION": 7,
+      "KEY_ZIP_CODE": 8,
+      "KEY_MIDDLE_OUTLINE": 9,
+      "KEY_LATITUDE": 10,
+      "KEY_LONGITUDE": 11,
+      "KEY_UPDATE_INTERVAL": 12,
+      "KEY_SLEEP": 13,
+      "KEY_SLEEP_START": 14,
+      "KEY_SLEEP_END": 15,
+      "KEY_BATTERY_METER": 16,
+      "KEY_JSREADY": 17
+    },
+    "enableMultiJS": false,
+    "displayName": "LED Watch Info",
+    "watchapp": {
+      "onlyShownOnCommunication": false,
+      "hiddenApp": false,
+      "watchface": true
+    },
+    "targetPlatforms": [
+      "aplite",
+      "basalt",
+      "diorite"
+    ],
+    "capabilities": [
+      "location",
+      "configurable"
+    ]
+  },
+  "name": "LED Watch Info"
+}

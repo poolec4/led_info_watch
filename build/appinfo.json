@@ -1,0 +1,100 @@
+{
+    "targetPlatforms": [
+        "aplite", 
+        "basalt", 
+        "diorite"
+    ], 
+    "projectType": "native", 
+    "messageKeys": {
+        "KEY_TEMPERATURE": 0, 
+        "KEY_VIBRATE": 5, 
+        "KEY_SLEEP": 13, 
+        "KEY_UPDATE_INTERVAL": 12, 
+        "KEY_POS": 2, 
+        "KEY_LONGITUDE": 11, 
+        "KEY_MIDDLE_OUTLINE": 9, 
+        "KEY_SLEEP_END": 15, 
+        "KEY_CONDITIONS": 1, 
+        "KEY_LOCATION": 7, 
+        "KEY_UNIT": 6, 
+        "KEY_BATTERY_METER": 16, 
+        "KEY_JSREADY": 17, 
+        "KEY_SLEEP_START": 14, 
+        "KEY_BACKGROUND_COLOR": 3, 
+        "KEY_ZIP_CODE": 8, 
+        "KEY_LATITUDE": 10, 
+        "KEY_FONT_COLOR": 4
+    }, 
+    "companyName": "CDev", 
+    "enableMultiJS": false, 
+    "watchapp": {
+        "onlyShownOnCommunication": false, 
+        "hiddenApp": false, 
+        "watchface": true
+    }, 
+    "versionLabel": "1.0", 
+    "longName": "LED Watch Info", 
+    "shortName": "LED Watch Info", 
+    "name": "LED Watch Info", 
+    "sdkVersion": "3", 
+    "displayName": "LED Watch Info", 
+    "uuid": "965986b6-5cd6-471e-b726-adf0b2434a4c", 
+    "appKeys": {
+        "KEY_TEMPERATURE": 0, 
+        "KEY_VIBRATE": 5, 
+        "KEY_SLEEP": 13, 
+        "KEY_UPDATE_INTERVAL": 12, 
+        "KEY_POS": 2, 
+        "KEY_LONGITUDE": 11, 
+        "KEY_MIDDLE_OUTLINE": 9, 
+        "KEY_SLEEP_END": 15, 
+        "KEY_CONDITIONS": 1, 
+        "KEY_LOCATION": 7, 
+        "KEY_UNIT": 6, 
+        "KEY_BATTERY_METER": 16, 
+        "KEY_JSREADY": 17, 
+        "KEY_SLEEP_START": 14, 
+        "KEY_BACKGROUND_COLOR": 3, 
+        "KEY_ZIP_CODE": 8, 
+        "KEY_LATITUDE": 10, 
+        "KEY_FONT_COLOR": 4
+    }, 
+    "capabilities": [
+        "location", 
+        "configurable"
+    ], 
+    "resources": {
+        "media": [
+            {
+                "type": "font", 
+                "name": "FONT_MYRIAD_LIGHT_14", 
+                "file": "fonts/MyriadPro-Light.ttf"
+            }, 
+            {
+                "type": "font", 
+                "name": "FONT_MYRIAD_LIGHT_13", 
+                "file": "fonts/MyriadPro-Light.ttf"
+            }, 
+            {
+                "type": "png", 
+                "name": "cloud", 
+                "file": "images/cloud.png"
+            }, 
+            {
+                "type": "png", 
+                "name": "battery", 
+                "file": "images/battery.png"
+            }, 
+            {
+                "type": "png", 
+                "name": "shoe", 
+                "file": "images/shoe.png"
+            }, 
+            {
+                "type": "png", 
+                "name": "pin", 
+                "file": "images/pin.png"
+            }
+        ]
+    }
+}
