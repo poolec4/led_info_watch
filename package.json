@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "author": "CDev",
   "private": true,
   "dependencies": {},
@@ -39,6 +39,26 @@
         "type":"png",
         "name":"pin",
         "file":"images/pin.png"
+      },
+            {
+        "type":"png",
+        "name":"cloud_inv",
+        "file":"images/cloud_inv.png"
+      },
+      {
+        "type":"png",
+        "name":"battery_inv",
+        "file":"images/battery_inv.png"
+      },
+      {
+        "type":"png",
+        "name":"shoe_inv",
+        "file":"images/shoe_inv.png"
+      },
+      {
+        "type":"png",
+        "name":"pin_inv",
+        "file":"images/pin_inv.png"
       }
     ]
     },
@@ -65,10 +85,12 @@
       "KEY_JSREADY": 17,
       "KEY_BACKGROUND_COLOR": 18,
       "KEY_FONT_COLOR": 19,
-      "KEY_POS_ERROR": 20
+      "KEY_POS_ERROR": 20,
+      "KEY_INVERT":21,
+      "KEY_SHOW_BLUETOOTH":22
     },
     "enableMultiJS": false,
-    "displayName": "LED Watch Info",
+    "displayName": "LED Info Watch",
     "watchapp": {
       "onlyShownOnCommunication": false,
       "hiddenApp": false,
@@ -86,5 +108,5 @@
       "health"
     ]
   },
-  "name": "LED Watch Info"
+  "name": "LED Info Watch"
 }

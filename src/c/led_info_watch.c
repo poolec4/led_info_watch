@@ -27,12 +27,13 @@ int sleep_status = 0;
 int sleep_start_hour = 0;
 int sleep_end_hour = 0;
 int battery_meter_status = 1;
+int invert_status = 0;
+int show_bluetooth_status = 0;
 
 char latitude_to_store[15] = "0";
 char longitude_to_store[15] = "0";
 
 bool is_in_sleep = false;
-bool show_bluetooth_status = true;
 bool hide_location;
 
 #define KEY_TEMPERATURE 0
@@ -58,6 +59,8 @@ bool hide_location;
 #define KEY_BACKGROUND_COLOR 18
 #define KEY_FONT_COLOR 19
 #define KEY_POS_ERROR 20
+#define KEY_INVERT 21
+#define KEY_SHOW_BLUETOOTH 22
 
 static Window *window;
 static Layer *canvas_layer;
@@ -76,10 +79,18 @@ static BitmapLayer *battery_bitmap_layer;
 static GBitmap *battery_bitmap;
 static BitmapLayer *pin_bitmap_layer;
 static GBitmap *pin_bitmap;
+static GBitmap *cloud_bitmap_inv;
+static GBitmap *shoe_bitmap_inv;
+static GBitmap *battery_bitmap_inv;
+static GBitmap *pin_bitmap_inv;
 
 static GFont font_myriad_14;
 static GFont font_myriad_13;
-
+static GRect window_bounds;
+static GRect full_window_bounds;
+double x_offset = 0;
+double y_offset = 0;
+double bitmap_y_offset = 0;
 static bool js_ready;
 
 char* short_months[] = {"Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"};
@@ -88,8 +99,10 @@ static char date_buffer[30];
 static char temperature_buffer[8];
 static char conditions_buffer[100];
 static char location_buffer[100];
+static char location_buffer_short[50];
 static char steps_buffer[10];
 static char battery_buffer[10];
+static int max_location_length;
 
 int numbers_to_print[4] = {0,0,0,0};
 
@@ -385,9 +398,16 @@ static void inbox_received_callback(DictionaryIterator *iterator, void *context)
         
         case KEY_BATTERY_METER:
           battery_meter_status = (int)t->value->int32;
-          APP_LOG(APP_LOG_LEVEL_INFO, "battery_meter: %d", battery_meter_status);
+          break;
+
+        case KEY_INVERT:
+          invert_status = (int)t->value->int32;
           break;
         
+        case KEY_SHOW_BLUETOOTH:
+          show_bluetooth_status = (int)t->value->int32;
+          break;
+
         default:
           APP_LOG(APP_LOG_LEVEL_ERROR, "Key%d not recognized", (int)t->key);
           break;
@@ -417,6 +437,10 @@ static void outbox_sent_callback(DictionaryIterator *iterator, void *context)
   APP_LOG(APP_LOG_LEVEL_INFO, "Outbox send success!");
 }
 
+static void handle_bluetooth(bool connected) {
+  layer_mark_dirty(canvas_layer);
+}
+
 static void canvas_layer_update_proc(Layer *this_layer, GContext *ctx)
 {
   background_color_hex_int = HexStringToUInt(background_color_hex_char);
@@ -424,11 +448,34 @@ static void canvas_layer_update_proc(Layer *this_layer, GContext *ctx)
   highlight_color_hex_int = HexStringToUInt(highlight_color_hex_char);
   location_color_hex_int = HexStringToUInt(location_color_hex_char);
 
-  graphics_context_set_fill_color(ctx, GColorBlack);
-  graphics_fill_rect(ctx, GRect(0, 0, 144, 168), 0, GCornerNone);
+  if(invert_status == 0)
+  {
+    fontGColor = GColorWhite;
+    backgroundGColor = GColorBlack;
 
-  fontGColor = GColorWhite;
-  backgroundGColor = GColorBlack;
+    bitmap_layer_set_bitmap(weather_bitmap_layer, cloud_bitmap);
+    bitmap_layer_set_bitmap(steps_bitmap_layer, shoe_bitmap);
+    bitmap_layer_set_bitmap(battery_bitmap_layer, battery_bitmap);
+    bitmap_layer_set_bitmap(pin_bitmap_layer, pin_bitmap);
+  }
+  else if(invert_status == 1)
+  {
+    fontGColor = GColorBlack;
+    backgroundGColor = GColorWhite;
+
+    bitmap_layer_set_bitmap(weather_bitmap_layer, cloud_bitmap_inv);
+    bitmap_layer_set_bitmap(steps_bitmap_layer, shoe_bitmap_inv);
+    bitmap_layer_set_bitmap(battery_bitmap_layer, battery_bitmap_inv);
+    bitmap_layer_set_bitmap(pin_bitmap_layer, pin_bitmap_inv);
+  }
+
+  #ifdef PBL_COLOR
+  graphics_context_set_fill_color(ctx, GColorBlack);
+  #else
+  graphics_context_set_fill_color(ctx, backgroundGColor);
+  #endif
+
+  graphics_fill_rect(ctx, full_window_bounds, 0, GCornerNone);
 
   #ifdef PBL_COLOR
     graphics_context_set_fill_color(ctx, GColorFromHEX(highlight_color_hex_int));
@@ -436,10 +483,10 @@ static void canvas_layer_update_proc(Layer *this_layer, GContext *ctx)
     graphics_context_set_fill_color(ctx, fontGColor);
   #endif
 
-  int x_start[4] = {10, 40, 80, 110};
-  int y_start[4] = {62, 62, 62, 62};
-  int x_offset = 4;
-  int y_offset = 4;
+  int x_start[4] = {0.0694*window_bounds.size.w+x_offset, 0.2778*window_bounds.size.w+x_offset, 0.5556*window_bounds.size.w+x_offset, 0.7639*window_bounds.size.w+x_offset};
+  int y_start[4] = {0.369*window_bounds.size.h+y_offset, 0.369*window_bounds.size.h+y_offset, 0.369*window_bounds.size.h+y_offset, 0.369*window_bounds.size.h+y_offset};
+  int x_spacing = 4;
+  int y_spacing = 4;
 
   for (int x=0; x<5; x++)
   {
@@ -449,13 +496,13 @@ static void canvas_layer_update_proc(Layer *this_layer, GContext *ctx)
       {
         if (digit_matrix[numbers_to_print[k]][y][x] == 1)
         {
-          graphics_fill_rect(ctx, GRect(x_start[k]+x_offset*x+x, y_start[k]+y_offset*y+y, x_offset, y_offset), 0, GCornerNone);  
+          graphics_fill_rect(ctx, GRect(x_start[k]+x_spacing*x+x, y_start[k]+y_spacing*y+y, x_spacing, y_spacing), 0, GCornerNone);  
         }
       }
     }
   }
-  graphics_fill_rect(ctx, GRect(70,72,4,4), 0, GCornerNone);
-  graphics_fill_rect(ctx, GRect(70,92,4,4), 0, GCornerNone);
+  graphics_fill_rect(ctx, GRect(0.4861*window_bounds.size.w+x_offset,0.4286*window_bounds.size.h+y_offset,4,4), 0, GCornerNone);
+  graphics_fill_rect(ctx, GRect(0.4861*window_bounds.size.w+x_offset,0.5476*window_bounds.size.h+y_offset,4,4), 0, GCornerNone);
 
   #ifdef PBL_COLOR
     graphics_context_set_fill_color(ctx, GColorFromHEX(highlight_color_hex_int));
@@ -463,9 +510,22 @@ static void canvas_layer_update_proc(Layer *this_layer, GContext *ctx)
     graphics_context_set_fill_color(ctx, fontGColor);
   #endif
 
-  graphics_fill_circle(ctx, GPoint(24,30),21);
-  graphics_fill_circle(ctx, GPoint(72,30),21);
-  graphics_fill_circle(ctx, GPoint(120,30),21);
+  graphics_fill_circle(ctx, GPoint(0.1667*window_bounds.size.w+x_offset,0.1786*window_bounds.size.h+y_offset),21);
+  graphics_fill_circle(ctx, GPoint(0.5*window_bounds.size.w+x_offset,0.1786*window_bounds.size.h+y_offset),21);
+  
+  if(show_bluetooth_status == 1)
+  {
+    if(!bluetooth_connection_service_peek())
+    {
+      #ifdef PBL_COLOR
+      graphics_context_set_fill_color(ctx, GColorFromHEX(background_color_hex_int));
+      #else
+      graphics_context_set_fill_color(ctx, backgroundGColor);
+      #endif
+    }
+  }
+
+  graphics_fill_circle(ctx, GPoint(0.8333*window_bounds.size.w+x_offset,0.1786*window_bounds.size.h+y_offset),21);
 
   #ifdef PBL_COLOR
     graphics_context_set_fill_color(ctx, GColorBlack);
@@ -473,9 +533,9 @@ static void canvas_layer_update_proc(Layer *this_layer, GContext *ctx)
     graphics_context_set_fill_color(ctx, backgroundGColor);
   #endif
 
-  graphics_fill_circle(ctx, GPoint(24,30),19);
-  graphics_fill_circle(ctx, GPoint(72,30),19);
-  graphics_fill_circle(ctx, GPoint(120,30),19);
+  graphics_fill_circle(ctx, GPoint(0.1667*window_bounds.size.w+x_offset,0.1786*window_bounds.size.h+y_offset),19);
+  graphics_fill_circle(ctx, GPoint(0.5*window_bounds.size.w+x_offset,0.1786*window_bounds.size.h+y_offset),19);
+  graphics_fill_circle(ctx, GPoint(0.8333*window_bounds.size.w+x_offset,0.1786*window_bounds.size.h+y_offset),19);
 
   if(temp_to_store < 100 && temp_units == 1)
     snprintf(temperature_buffer, sizeof(temperature_buffer), "%d°F", temp_to_store);
@@ -485,12 +545,28 @@ static void canvas_layer_update_proc(Layer *this_layer, GContext *ctx)
     snprintf(temperature_buffer, sizeof(temperature_buffer), "%d°", temp_to_store);
   
   text_layer_set_text(temperature_text_layer, temperature_buffer);
-  text_layer_set_text(location_text_layer, location_buffer);
+
+  #if defined(PBL_ROUND)
+  max_location_length = 18;
+  #else
+  max_location_length = 20;
+  #endif
+
+  if((int)strlen(location_buffer) > max_location_length)
+  {
+    strncpy(location_buffer_short, location_buffer, max_location_length-1);
+    location_buffer_short[max_location_length-1] = '\0';
+    strcat(location_buffer_short, "...");
+    text_layer_set_text(location_text_layer, location_buffer_short);
+  }
+  else
+  {
+    text_layer_set_text(location_text_layer, location_buffer);
+  }
 
   BatteryChargeState charge_state = battery_state_service_peek();
   snprintf(battery_buffer, sizeof(battery_buffer), "%d%%", charge_state.charge_percent);
   text_layer_set_text(battery_text_layer, battery_buffer);
-
 
   #ifdef PBL_COLOR
     text_layer_set_text_color(date_text_layer, GColorWhite);
@@ -511,81 +587,107 @@ static void canvas_layer_update_proc(Layer *this_layer, GContext *ctx)
 
 static void window_load(Window *window) {
   Layer *window_layer = window_get_root_layer(window);
+  window_bounds = layer_get_unobstructed_bounds(window_layer);
+  full_window_bounds = layer_get_unobstructed_bounds(window_layer);
   text_layer = window_get_root_layer(window);
+  
+  double round_scale_factor[2] = {0.82,0.82};
+  
+  #if defined(PBL_ROUND)
+  {
+    x_offset = (window_bounds.size.w - round_scale_factor[0]*window_bounds.size.w)/2;
+    y_offset = 1.4*(window_bounds.size.h - round_scale_factor[1]*window_bounds.size.h)/2;
+    bitmap_y_offset = y_offset-2;
+    window_bounds.size.w = round_scale_factor[0]*window_bounds.size.w;
+    window_bounds.size.h = round_scale_factor[1]*window_bounds.size.h;
+  }
+  #endif
 
-  canvas_layer = layer_create(GRect(0, 0, 144, 168));
+  canvas_layer = layer_create(full_window_bounds);
   layer_add_child(window_layer, canvas_layer);
   layer_set_update_proc(canvas_layer, canvas_layer_update_proc);
 
-  date_text_layer = text_layer_create(GRect(0, 105, 144, 25));
+  date_text_layer = text_layer_create(GRect(0+x_offset, 0.625*window_bounds.size.h+y_offset, window_bounds.size.w, 25));
   text_layer_set_text_alignment(date_text_layer, GTextAlignmentCenter);
   text_layer_set_background_color(date_text_layer, GColorClear);
   text_layer_set_font(date_text_layer, font_myriad_14);
   layer_add_child(text_layer, text_layer_get_layer(date_text_layer));
 
-  location_text_layer = text_layer_create(GRect(0, 145, 144, 25));
-  text_layer_set_text_alignment(location_text_layer, GTextAlignmentCenter);
-  text_layer_set_background_color(location_text_layer, GColorClear);
-  text_layer_set_font(location_text_layer, font_myriad_14);
-  layer_add_child(text_layer, text_layer_get_layer(location_text_layer));
-
-  weather_bitmap_layer = bitmap_layer_create(GRect(11,14,25,15));
+  weather_bitmap_layer = bitmap_layer_create(GRect(0.0764*window_bounds.size.w+x_offset,0.08333*window_bounds.size.h+bitmap_y_offset,25,15));
   cloud_bitmap = gbitmap_create_with_resource(RESOURCE_ID_cloud);
-  bitmap_layer_set_bitmap(weather_bitmap_layer, cloud_bitmap);
+  cloud_bitmap_inv = gbitmap_create_with_resource(RESOURCE_ID_cloud_inv);
   bitmap_layer_set_alignment(weather_bitmap_layer, GAlignCenter);
   bitmap_layer_set_compositing_mode(weather_bitmap_layer, GCompOpSet);
   layer_add_child(window_layer, bitmap_layer_get_layer(weather_bitmap_layer));
   
-  temperature_text_layer = text_layer_create(GRect(10, 29, 29, 20));
+  temperature_text_layer = text_layer_create(GRect(0.06944*window_bounds.size.w+x_offset, 0.1726*window_bounds.size.h+y_offset, 29, 20));
   text_layer_set_text_alignment(temperature_text_layer, GTextAlignmentCenter);
   text_layer_set_background_color(temperature_text_layer, GColorClear);
   text_layer_set_font(temperature_text_layer, font_myriad_13);
   layer_add_child(text_layer, text_layer_get_layer(temperature_text_layer));
   
-  steps_bitmap_layer = bitmap_layer_create(GRect(56,14,32,15));
+  steps_bitmap_layer = bitmap_layer_create(GRect(0.3888*window_bounds.size.w+x_offset,0.08333*window_bounds.size.h+bitmap_y_offset,32,15));
   shoe_bitmap = gbitmap_create_with_resource(RESOURCE_ID_shoe);
-  bitmap_layer_set_bitmap(steps_bitmap_layer, shoe_bitmap);
+  shoe_bitmap_inv = gbitmap_create_with_resource(RESOURCE_ID_shoe_inv);
   bitmap_layer_set_alignment(steps_bitmap_layer, GAlignCenter);
   bitmap_layer_set_compositing_mode(steps_bitmap_layer, GCompOpSet);
   layer_add_child(window_layer, bitmap_layer_get_layer(steps_bitmap_layer));
 
-  steps_text_layer = text_layer_create(GRect(56, 29, 33, 20));
+  steps_text_layer = text_layer_create(GRect(0.3888*window_bounds.size.w+x_offset, 0.1726*window_bounds.size.h+y_offset, 33, 20));
   text_layer_set_text_alignment(steps_text_layer, GTextAlignmentCenter);
   text_layer_set_background_color(steps_text_layer, GColorClear);
   text_layer_set_font(steps_text_layer, font_myriad_13);
   layer_add_child(text_layer, text_layer_get_layer(steps_text_layer));
 
-  battery_bitmap_layer = bitmap_layer_create(GRect(105,15,32,15));
+  battery_bitmap_layer = bitmap_layer_create(GRect(0.7292*window_bounds.size.w+x_offset,0.0893*window_bounds.size.h+bitmap_y_offset,32,15));
   battery_bitmap = gbitmap_create_with_resource(RESOURCE_ID_battery);
-  bitmap_layer_set_bitmap(battery_bitmap_layer, battery_bitmap);
+  battery_bitmap_inv = gbitmap_create_with_resource(RESOURCE_ID_battery_inv);
   bitmap_layer_set_alignment(battery_bitmap_layer, GAlignCenter);
   bitmap_layer_set_compositing_mode(battery_bitmap_layer, GCompOpSet);
   layer_add_child(window_layer, bitmap_layer_get_layer(battery_bitmap_layer));
   
-  battery_text_layer = text_layer_create(GRect(103, 29, 38, 20));
+  battery_text_layer = text_layer_create(GRect(0.7153*window_bounds.size.w+x_offset, 0.1726*window_bounds.size.h+y_offset, 38, 20));
   text_layer_set_text_alignment(battery_text_layer, GTextAlignmentCenter);
   text_layer_set_background_color(battery_text_layer, GColorClear);
   text_layer_set_font(battery_text_layer, font_myriad_13);
   layer_add_child(text_layer, text_layer_get_layer(battery_text_layer));
 
-  pin_bitmap_layer = bitmap_layer_create(GRect(0,130,144,18));
+  pin_bitmap_layer = bitmap_layer_create(GRect(0+x_offset,0.745*window_bounds.size.h+bitmap_y_offset,window_bounds.size.w,18));
   pin_bitmap = gbitmap_create_with_resource(RESOURCE_ID_pin);
-  bitmap_layer_set_bitmap(pin_bitmap_layer, pin_bitmap);
+  pin_bitmap_inv = gbitmap_create_with_resource(RESOURCE_ID_pin_inv);
   bitmap_layer_set_alignment(pin_bitmap_layer, GAlignCenter);
   bitmap_layer_set_compositing_mode(pin_bitmap_layer, GCompOpSet);
   layer_add_child(window_layer, bitmap_layer_get_layer(pin_bitmap_layer));
+
+  location_text_layer = text_layer_create(GRect(0+x_offset, 0.83*window_bounds.size.h+y_offset, window_bounds.size.w, 25));
+  text_layer_set_text_alignment(location_text_layer, GTextAlignmentCenter);
+  text_layer_set_background_color(location_text_layer, GColorClear);
+  text_layer_set_font(location_text_layer, font_myriad_14);
+  text_layer_set_overflow_mode(location_text_layer, GTextOverflowModeTrailingEllipsis);
+  layer_add_child(text_layer, text_layer_get_layer(location_text_layer));
+
+  connection_service_subscribe((ConnectionHandlers) {
+    .pebble_app_connection_handler = handle_bluetooth
+  });
 }
 
 static void window_unload(Window *window) {
   layer_destroy(canvas_layer);
   text_layer_destroy(date_text_layer);
   text_layer_destroy(temperature_text_layer);
+  text_layer_destroy(steps_text_layer);
+  text_layer_destroy(battery_text_layer);
+  text_layer_destroy(location_text_layer);
   gbitmap_destroy(cloud_bitmap);
   bitmap_layer_destroy(weather_bitmap_layer);
   gbitmap_destroy(shoe_bitmap);
   bitmap_layer_destroy(steps_bitmap_layer);
   gbitmap_destroy(battery_bitmap);
   bitmap_layer_destroy(battery_bitmap_layer);
+  gbitmap_destroy(pin_bitmap);
+  bitmap_layer_destroy(pin_bitmap_layer);
+
+  connection_service_unsubscribe();
 }
 
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) 
@@ -669,6 +771,14 @@ static void init(void) {
   if (persist_exists(KEY_BATTERY_METER))
   {
     battery_meter_status = persist_read_int(KEY_BATTERY_METER);
+  }  
+  if (persist_exists(KEY_INVERT))
+  {
+    invert_status = persist_read_int(KEY_INVERT);
+  }
+  if (persist_exists(KEY_SHOW_BLUETOOTH))
+  {
+    show_bluetooth_status = persist_read_int(KEY_SHOW_BLUETOOTH);
   }
 
   background_color_hex_int = HexStringToUInt(background_color_hex_char);
@@ -721,6 +831,8 @@ static void deinit(void) {
   persist_write_int(KEY_SLEEP_START, sleep_start_hour);
   persist_write_int(KEY_SLEEP_END, sleep_end_hour);
   persist_write_int(KEY_BATTERY_METER, battery_meter_status);
+  persist_write_int(KEY_INVERT, invert_status);
+  persist_write_int(KEY_SHOW_BLUETOOTH, show_bluetooth_status);
 
   window_destroy(window);
   tick_timer_service_unsubscribe();
